@@ -1,0 +1,27 @@
+*{
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.Ingresar{
+    display: grid;
+    width: 10%;
+    grid-gap: 20px;
+    grid-auto-rows: 30px;
+    padding-bottom: 50px;
+}
+.tasks{
+    border: solid 2px black;
+    padding: 15px;
+
+}
+.tasks p{
+    border: solid 1px black;
+    padding: 20px;
+
+}
