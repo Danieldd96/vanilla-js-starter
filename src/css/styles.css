@@ -4,40 +4,80 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+body{
+    background-image: url(/src/img/1335411.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 h1{
     text-align: center;
     padding-bottom: 50px;
+    color: #fff;
+    -webkit-text-stroke: 1px purple;
+    font-size: 48px;
 }
 .Ingresar{
     display: grid;
-    width: 10%;
+    width: 20%;
     grid-gap: 20px;
     grid-auto-rows: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 90px;
+}
+#btn{
+    background-color: rgba(51, 51, 217, 0.66);
+    color: #fff;
+    
 }
 .tasks{
+    border: solid 2px  #dda90d;
+    padding-bottom: 25%;
+    backdrop-filter: blur(3px);
+
+}
+.check label{
+    background-color: #2b3241;
+}
+.BotonBorrar{
+    position: absolute;
+    display: block;
+    list-style: none;
+    transform: translate(1107px,-72%);
+    font-size: 49px;
+    
+    cursor: pointer;
+
+    
+    
+}
+.BotonBorrar:hover{
+    background-color: rgba(255, 0, 0, 0.679);
+}
+
+
+
+.tasks h2{
+    font-size: 150%;
     border: solid 2px black;
     padding: 15px;
-
+    background-color: #262729a1;
+    
+    
 }
 
-.tasks p{
-    border: solid 1px black;
-    padding: 20px;
-
-}
 .completadas{
-    width: 30%;
+    position: absolute;
+    width: 10%;
     height: 100px;
     display: flex;
-    margin-left: 60%;
-    margin-top: -15%;
+    margin-left: 74%;
+    margin-top: -9%;
     padding-bottom: 20px;
+    color: #dda90d;
 }
 .contador{
     border: solid;
     border-radius: 50%;
-    padding: 30px;
-    margin-top: -10px;
+    padding: 25px 28px;
+    margin-top: -8px;
 }
 
