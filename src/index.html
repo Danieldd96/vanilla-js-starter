@@ -25,21 +25,23 @@
 		</div>
 	</header>
 	<div>
-
-		<form class="Ingresar">
-			<input type="text" placeholder="Ingresar Tarea" id="ingreso" onkeypress="ElementInternals">
+        <!--Este form con tendra el input y el buton con el cual ingresaremos las tareas -->
+		<form class="Ingresar">   
+			<input type="text" placeholder="Ingresar Tarea" id="ingreso" >
 			<button id="btn">Agregar</button>
 		</form>
+		<!-- Este div contiene el contador de tareas completadas -->
 		<div class="completadas">
 			<p>Tareas completadas</p>
 			<p class="contador">0</p>
 		</div>
 	</div>
-	
+	<!--En este section se encuentra un div "tasks" en el cual el contenido previamente puesto en
+	 el input se mandara por medio del js a el ul con id "container"  -->
 	<section style="padding: 0px 35px ">
 		<div class="tasks">
 			<div>
-			    <ul id="container">
+			    <ul id="container">  
 					
 
 				</ul>
