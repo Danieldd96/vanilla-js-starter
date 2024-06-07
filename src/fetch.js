@@ -1,18 +1,19 @@
 const contenido = document.getElementById('ingreso')  ///Elemento input
 const boton = document.getElementById('btn')       ///Elemento Button
 const lista = document.getElementById('container')  ///Elemento :Ul
+const contador = document.getElementsByClassName('contador')
 boton.addEventListener("click", async (e) =>{  
     e.preventDefault();
     const texto = contenido.value;    ///El const me ayudara para obtener el valor del input llamado contenido.
-    if (texto !== "" & texto!==" ") {
+    if (texto !== "" & texto!=="  ") {/// trim java
         
-        let tareas = await darDatos(texto);
-        
+        let tareas = await darDatos();
+        listarTareas()
         contenido.value = "";
     }
-    location.reload(    )
+    
 })
-export async function darDatos(texto){
+export async function darDatos(){
     
     try {
         let task={
@@ -30,22 +31,16 @@ export async function darDatos(texto){
         const Datos = await respuesta.json()
         console.log(Datos)
         console.log(`Se agrego la tarea ${task.tarea}`);
-        getTareas()
+        listarTareas()
     } catch (error) {
         console.error(error);
     }
 }
-export async function getTareas(texto) {
-    const response = await fetch("http://localhost:3000/api/todo",{
-        method: "GET",
-        headers: {
-         "Content-type": "application/json;",
-       }
-    })
-    try {
-        const response = await fetch("http://localhost:3000/api/todo")
-        let listarTareas =await response.json()
-        listarTareas.forEach(element => {
+async function listarTareas() {
+
+        let tareas=await getTareas()
+        lista.innerHTML=""
+        tareas.forEach(element => {
         const li = document.createElement("h2"); 
         const checkbox = document.createElement("input")
         const p = document.createElement("label"); 
@@ -55,23 +50,68 @@ export async function getTareas(texto) {
         checkbox.type= "checkbox"  
         checkbox.className="check"
         li.className="tareas"
+        
         p.innerHTML = element.tarea; 
+        checkbox.checked=element.estado
+        if (checkbox.checked) {
+            contador.value++
+            
+        }
         li.appendChild(checkbox)
         li.appendChild(p); 
         li.appendChild(BtnBorrar)
         lista.appendChild(li); 
-        BtnBorrar.addEventListener("click", () => {
-        deleteData(element.id)
-        location.reload() 
+        BtnBorrar.addEventListener("click",async () => {
+            await deleteData(element.id)
+            listarTareas()
+        
         });
+        checkbox.addEventListener("click",()=>{
+            if (checkbox.checked == true) {
+                actualizarTarea(element.id)
+                contador.value++
+            }else{
+                contador.value--
+            }
+        })
+        
     })
+    
+}
+
+export async function getTareas() {
+    try {
+        const response = await fetch("http://localhost:3000/api/todo")
+        let listarTareas =await response.json()
+        return listarTareas
+
     } catch (error) {
         console.log(error)
     }
+
 };
-getTareas()
+listarTareas()
 
-
+///crear put recibe como parametro obj tarea
+async function actualizarTarea(id) {
+    try {
+        let task={
+            estado:true
+        }
+        const response = await fetch (`http://localhost:3000/api/todo/${id}`,{
+            method:"PUT",
+            headers: {
+                "Content-type": "application/json;",
+            },
+            body:JSON.stringify(task)
+        })
+        let data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+    }
+    
+}
 
 export async function deleteData(id) {
     try {
