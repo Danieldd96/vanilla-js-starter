@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Ejemplo básico</title>
+	<title>Agregar Tareas</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="/src/css/styles.css">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -10,9 +9,11 @@
 
 <body>
 	<header>
+
 		<h1>Tareas por hacer</h1>
 		<h3>Redes Sociales</h3>
-		<div class="Redes">
+		<!--Este div contiene iconos y direcciones a Redes Sociales-->
+		<div class="Redes">  
 			<a style="color: rgb(55, 55, 203);" class="face" href="https://www.facebook.com/?locale=es_LA" target="_blank">
 				<i class='bx bxl-facebook-circle'></i>
 			</a>
@@ -24,33 +25,35 @@
 			</a>
 		</div>
 	</header>
+
 	<div>
         <!--Este form con tendra el input y el buton con el cual ingresaremos las tareas -->
 		<form class="Ingresar">   
-			<input type="text" placeholder="Ingresar Tarea" id="ingreso" required maxlength="80">
-			<button id="btn">Agregar</button>
+			<input type="text" placeholder="Ingresar Tarea" id="ingreso" required maxlength="80">  <!--En este input se ingresaran las tareas con un maximo de 80 caracteres-->
+			<button id="btn">Agregar</button>                                                      <!--Este boton sera el que ocuparemos para mandar las tareas a las funciones del javaacript-->
 		</form>
+
 		<!-- Este div contiene el contador de tareas completadas -->
 		<div class="completadas">
-			<p>Tareas completadas</p>
-			<p class="contador">0</p>
+			<p class="tarCom">Tareas completadas</p>
+			<p id="contador">0</p>
 		</div>
+
 	</div>
+
 	<!--En este section se encuentra un div "tasks" en el cual el contenido previamente puesto en
-	 el input se mandara por medio del js a el ul con id "container"  -->
+	el input se mandara por medio del js a el ul con id "container"-->
 	<section style="padding: 0px 35px ">
 		<div class="tasks">
 			<div>
 			    <ul id="container">  
-					
-
 				</ul>
 			</div>
 
 		</div>
 	</section>
 
-	<script src="/src/fetch.js" type="module"></script>
+	<script src="/src/Funciones.js" type="module"></script>
 </body>
 
 </html>
