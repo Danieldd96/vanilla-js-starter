@@ -8,13 +8,15 @@ const boton = document.getElementById('btn')                ///Elemento Button q
 const lista = document.getElementById('container')          ///Elemento :Ul que contendra las tareas
 const contador = document.getElementById('contador')        ///Este elemento es una etiqueta <p> que contendra el contador
 
-boton.addEventListener("click", async (e) =>{               ///Este boton es el encargado de activar las funciones que guardaran borran y actualizaran tareas 
+boton.addEventListener("click", async (e) =>{               ///Este boton es el encargado de activar las funciones que guardan borran y actualizaran tareas 
     e.preventDefault();                                     ///Esto me ayudara a que la pagina no se recargue
     const texto = contenido.value.trim();                   ///Este const me ayudara para obtener el valor del input llamado contenido.
     if (texto !== "") {                                     ///Este if tiene como Funcion no dejar colocar espacios vacios como tarea
         await darDatos(contenido);                          ///Aqui esperaremos la respuesta de dardatos y le pasaremos el parametro contenido
         listarTareas()                                      ///Y se llamara a la funcion listarTareas que creara la parte visual de la pagina
         contenido.value = "";                               ///Con contenido.value haremos que el input se vacie al mandar la tarea
+    }else{
+        alert("Ingrese texto")
     }
 })
 
@@ -65,4 +67,4 @@ async function listarTareas() {
 }
 listarTareas()
 
-        
+    
