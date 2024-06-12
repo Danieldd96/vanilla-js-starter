@@ -1,40 +1,38 @@
 ///Funciones Fetch 
 
 ///Metodo POST
-export async function darDatos(contenido){///Este es el metodo que guardara mis tareas en el api
+export async function darDatos(pass,user){///Este es el metodo que guardara mis tareas en el api
     try {
-        let task={
+        let usuarios={
             fecha:Date.now(),
-            tarea:contenido.value,
-            estado:false
+            user:user.value,
+            pass:pass.value
         }
         const respuesta = await fetch("http://localhost:3000/api/todo",{
            method: "POST",
            headers: {
             "Content-type": "application/json; charset=UTF-8"
           },
-          body: JSON.stringify(task)
+          body: JSON.stringify(usuarios)
         })
         const Datos = await respuesta.json()
         console.log(Datos)
-        console.log(`Se agrego la tarea ${task.tarea}`);
     } catch (error) {
         console.error(error);
     }
 }
 ///Metodo GET
-export async function getTareas() {///Este metodo obtendra las tareas guardadas en el api
+export async function getUsuarios() {///Este metodo obtendra las tareas guardadas en el api
     try {
         const response = await fetch("http://localhost:3000/api/todo")
-        let listarTareas =await response.json()
-        return listarTareas
+        let listarUsuarios =await response.json()
+        return listarUsuarios
 
     } catch (error) {
         console.log(error)
     }
 
 };
-///Metodo put
 export async function actualizarTarea(element) {///En este metodo cambiaremos el estado de la tarea actualizando la api
     try {
         element.estado=!element.estado
@@ -51,7 +49,6 @@ export async function actualizarTarea(element) {///En este metodo cambiaremos el
     } catch (error) {
         console.log(error)
     }
-    
 }
 ///Metodo DELETE
 export async function deleteData(id) {

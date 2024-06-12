@@ -3,55 +3,43 @@
 <head>
 	<title>Agregar Tareas</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="/src/css/styles.css">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-	<header>
+    <div class="wrapper" id="menu2">
+        <div class="login" >
+            <form id="loginForm">
 
-		<h1>Tareas por hacer</h1>
-		<h3>Redes Sociales</h3>
-		<!--Este div contiene iconos y direcciones a Redes Sociales-->
-		<div class="Redes">  
-			<a style="color: rgb(55, 55, 203);" class="face" href="https://www.facebook.com/?locale=es_LA" target="_blank">
-				<i class='bx bxl-facebook-circle'></i>
-			</a>
-			<a style="color: #fff;" class="insta" href="https://www.instagram.com/" target="_blank">
-				<i class='bx bxl-instagram'></i>
-			</a>
-			<a style="color: #00ff00;" class="what" href="https://web.whatsapp.com/" target="_blank">
-				<i class='bx bxl-whatsapp' ></i>
-			</a>
-		</div>
-	</header>
-
-	<div>
-        <!--Este form con tendra el input y el buton con el cual ingresaremos las tareas -->
-		<form class="Ingresar">   
-			<input type="text" placeholder="Ingresar Tarea" id="ingreso" required maxlength="60">  <!--En este input se ingresaran las tareas con un maximo de 80 caracteres-->
-			<button id="btn">Agregar</button>                                                      <!--Este boton sera el que ocuparemos para mandar las tareas a las funciones del javaacript-->
-		</form>
-
-		<!-- Este div contiene el contador de tareas completadas -->
-		<div class="completadas">
-			<p class="tarCom">Tareas completadas</p>
-			<p id="contador">0</p>
-		</div>
-
-	</div>
-
-	<!--En este section se encuentra un div "tasks" en el cual el contenido previamente puesto en
-	el input se mandara por medio del js a el ul con id "container"-->
-	<section style="padding: 0px 35px ">
-		<div class="tasks">
-			<div>
-			    <ul id="container">  
-				</ul>
-			</div>
-
-		</div>
-	</section>
+                <h1>Login</h1>
+            <div class="input-box">
+                 <input type="text" placeholder="Username" 
+                required id="user" >
+            <i class='bx bxs-user' ></i>
+        </div>
+             <div class="input-box">
+                 <input type="password" 
+                placeholder="Password" 
+            required id="pass">
+                 <i class='bx bxs-lock-alt' ></i>
+                </div>
+            
+            <div class="remenber-forgot">
+                <label><input type="checkbox"> Remenber Me</label>
+                 <a href="#" id="cambio">Forgot password?</a>
+                 <div id=""></div>
+                </div>
+            <button  id="btnLo">Login</button>
+        
+        <div class="register-link">
+            <p>Don't have an account? <a href="#" id="PagRegister">Register</a></p>
+        </div>
+    </form>
+       
+        </div>
+     </div>
+   
+     
 
 	<script src="/src/Funciones.js" type="module"></script>
 </body>
