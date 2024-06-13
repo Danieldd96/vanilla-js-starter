@@ -10,7 +10,7 @@ console.log("hola...")
 PagLogin.addEventListener("click",()=> {
     window.location.href="index.html"
  })
-BotonRegister.addEventListener('click',async(e)=>{
-    e.preventDefault()
+BotonRegister.addEventListener('click',async()=>{
     await darDatos(pass,user)
+    window.location.href="index.html"
 })

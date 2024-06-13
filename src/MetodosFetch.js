@@ -33,10 +33,11 @@ export async function getUsuarios() {///Este metodo obtendra las tareas guardada
     }
 
 };
-export async function actualizarTarea(element) {///En este metodo cambiaremos el estado de la tarea actualizando la api
+export async function actualizarContraseña(element,InputCambioPass,InputCambioUser) {///En este metodo cambiaremos el estado de la tarea actualizando la api
     try {
-        element.estado=!element.estado
-        console.log(element)
+            element.user = InputCambioUser
+            element.pass = InputCambioPass
+
         const response = await fetch (`http://localhost:3000/api/todo/${element.id}`,{
             method:"PUT",
             headers: {
@@ -51,9 +52,11 @@ export async function actualizarTarea(element) {///En este metodo cambiaremos el
     }
 }
 ///Metodo DELETE
-export async function deleteData(id) {
+export async function deleteData(idRegistrado) {
+
+  
     try {
-        const response = await fetch(`http://localhost:3000/api/todo/${id}`,{
+        const response = await fetch(`http://localhost:3000/api/todo/${idRegistrado}`,{
             method:"DELETE",
             headers: {
                 "Content-type": "application/json;",
